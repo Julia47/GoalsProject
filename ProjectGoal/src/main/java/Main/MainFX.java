@@ -6,29 +6,26 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 public class MainFX extends Application {
 
-
         public static void main(String[] args) {
-
         Application.launch(args);
-    }
-
+        }
 
         @Override
         public void start(Stage stage) throws Exception {
 
-            String name = "startForms/SignIn.fxml";
-            Parent root = FXMLLoader.load(getClass().getResource(name));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("StartForms/SignIn.fxml")));
             Scene scene = new Scene(root);
 
             stage.setScene(scene);
 
-            stage.setTitle("Hello JavaFX");
+            stage.setTitle("Sign In");
             stage.setWidth(600);
             stage.setHeight(800);
 
             stage.show();
         }
-
-    }
+}

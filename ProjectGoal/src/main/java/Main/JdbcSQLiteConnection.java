@@ -8,7 +8,8 @@ public class JdbcSQLiteConnection {
 
     private Connection connect() {
 
-        String dbURL = "jdbc:sqlite:/home/julie47/JUST_DO/Project_Goal/sqlite/hello.sqlite";
+        String dbURL = "jdbc:sqlite:/home/julie47/JUST_DO/repo/GoalsProject/sqliteDB/goal.db";
+
         Connection conn = null;
 
         try {

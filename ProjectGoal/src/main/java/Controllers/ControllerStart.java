@@ -15,6 +15,7 @@ import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 
 public class ControllerStart {
@@ -39,7 +40,7 @@ public class ControllerStart {
         Stage stage = (Stage) registerLabel.getScene().getWindow();
         stage.close();
 
-        Parent root = FXMLLoader.load(getClass().getResource("register.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("StartForms/Register.fxml")));
         stage.setTitle("Register");
         stage.setScene(new Scene(root, 600, 800));
         stage.show();
@@ -91,8 +92,8 @@ public class ControllerStart {
             Stage stages = (Stage) createBtn.getScene().getWindow();
             stages.close();
 
-            Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
-            stages.setTitle("Register");
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("StartForms/SignIn.fxml")));
+            stages.setTitle("SignIn");
             stages.setScene(new Scene(root, 1000, 700));
             stages.show();
         }
@@ -113,7 +114,7 @@ public class ControllerStart {
             Stage stages = (Stage) signInBtn.getScene().getWindow();
             stages.close();
 
-            Parent root = FXMLLoader.load(getClass().getResource("mainForm.fxml"));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("StartForms/MainForm.fxml")));
             stages.setTitle("MainFrame");
             stages.setScene(new Scene(root, 1000, 700));
             stages.show();

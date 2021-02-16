@@ -13,13 +13,14 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 public class ControllerMain {
 
 
     public ImageView userBtn;
     public ImageView starBtn;
     public ImageView calendarBtn;
-    public Pane mainPane;
     public Pane menuPane;
     public Pane up3Pane;
     public Label up1Pane;
@@ -55,7 +56,7 @@ public class ControllerMain {
         User user = User.getInstance();
         Parent root = null;
         try {
-            root= FXMLLoader.load(getClass().getResource("userForm.fxml"));
+            root= FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("UserForms/UserForm1.fxml")));
             Label nameLabel = (Label) root.lookup("#nameData");
             if (nameLabel!=null) nameLabel.setText(user.getUsername());
             Label emailLabel = (Label) root.lookup("#emailData");
@@ -78,7 +79,7 @@ public class ControllerMain {
 
         Parent root = null;
         try {
-            root= FXMLLoader.load(getClass().getResource("goalForm.fxml"));
+            root= FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("GoalForms/GoalForm.fxml")));
         } catch (Exception ignored) {
         }
         mainBorderPane.setCenter(root);
@@ -94,7 +95,7 @@ public class ControllerMain {
 
         Parent root = null;
         try {
-            root= FXMLLoader.load(getClass().getResource("calendarForm.fxml"));
+            root= FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("CalendarForms/CalendarForm.fxml")));
         } catch (Exception ignored) {
         }
         mainBorderPane.setCenter(root);
@@ -110,7 +111,7 @@ public class ControllerMain {
 
 //        Parent root = null;
 //        try {
-//            root= FXMLLoader.load(getClass().getResource("userForm2.fxml"));
+//            root= FXMLLoader.load(getClass().getResource("UserForm2.fxml"));
 //        } catch (Exception ignored) {
 //        }
 //        mainBorderPane.setCenter(root);
