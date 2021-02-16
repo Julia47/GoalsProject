@@ -64,10 +64,8 @@ public class ControllerStart {
         String username = createName.getText();
         String e_mail = createMail.getText();
         String passw = createPassw.getText();
-
         String empty = "";
 
-        System.out.println(searchMail(e_mail));
 
         if (username.equals(empty) || e_mail.equals(empty) || passw.equals(empty) || searchMailBool(e_mail)) {
             if(username.equals(empty) || e_mail.equals(empty) || passw.equals(empty) ){
@@ -81,6 +79,21 @@ public class ControllerStart {
         }
 
         else {
+            createUser(username, e_mail, passw);
+            Stage stages = (Stage) createBtn.getScene().getWindow();
+            stages.close();
+
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("StartForms/SignIn.fxml")));
+            stages.setTitle("SignIn");
+            stages.setWidth(1000);
+            stages.setScene(new Scene(root, 1000, 700));
+            stages.show();
+        }
+
+    }
+
+    public void createUser(String username, String e_mail, String passw){
+
             User user = User.getInstance();
             user.setUsername(username);
             user.setE_mail(e_mail);
@@ -89,14 +102,7 @@ public class ControllerStart {
             JdbcSQLiteConnection connect = new JdbcSQLiteConnection();
             connect.insertUser(user.getUsername(), user.getPassw(), user.getE_mail());
             connect.selectMail();
-            Stage stages = (Stage) createBtn.getScene().getWindow();
-            stages.close();
 
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("StartForms/SignIn.fxml")));
-            stages.setTitle("SignIn");
-            stages.setScene(new Scene(root, 1000, 700));
-            stages.show();
-        }
     }
 
     public void signInBtnClicked(MouseEvent mouseEvent) throws IOException {
@@ -116,6 +122,7 @@ public class ControllerStart {
 
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("StartForms/MainForm.fxml")));
             stages.setTitle("MainFrame");
+            stages.setWidth(1000);
             stages.setScene(new Scene(root, 1000, 700));
             stages.show();
         }
@@ -161,6 +168,22 @@ public class ControllerStart {
                 t = true;
             }
         return t;
+    }
+
+    public void createExited(MouseEvent mouseEvent) {
+        createBtn.setStyle("-fx-background-color: #34273B; -fx-border-width: 1px; -fx-border-color: #b6f2e1;");
+    }
+
+    public void createMoved(MouseEvent mouseEvent) {
+        createBtn.setStyle("-fx-background-color: #34273B; -fx-border-width: 3px; -fx-border-color: #b6f2e1;");
+    }
+
+    public void signInBtnExited(MouseEvent mouseEvent) {
+        signInBtn.setStyle("-fx-background-color: #34273B; -fx-border-width: 1px; -fx-border-color: #b6f2e1;");
+    }
+
+    public void signInBtnMoved(MouseEvent mouseEvent) {
+        signInBtn.setStyle("-fx-background-color: #34273B; -fx-border-width: 3px; -fx-border-color: #b6f2e1;");
     }
 }
 

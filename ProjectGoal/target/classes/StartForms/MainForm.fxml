@@ -14,13 +14,13 @@
          </center>
          <right>
              <Pane fx:id="up2Pane" maxHeight="30.0" maxWidth="150.0" minHeight="30.0" minWidth="150.0" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #050828;" BorderPane.alignment="CENTER">
-                 <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="113.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                 <ImageView fx:id="closeBtn" fitHeight="23.0" fitWidth="23.0" layoutX="113.0" layoutY="5.0" onMouseClicked="#closeBtnClicked" pickOnBounds="true" preserveRatio="true">
                      <Image url="@/icons/x.png" />
                  </ImageView>
                  <ImageView fx:id="maxBtn" fitHeight="23.0" fitWidth="23.0" layoutX="64.0" layoutY="4.0" onMouseClicked="#maxBtnClicked" pickOnBounds="true" preserveRatio="true">
                      <Image url="@/icons/max.png" />
                  </ImageView>
-                 <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                 <ImageView fx:id="minBtn" fitHeight="23.0" fitWidth="23.0" layoutX="14.0" layoutY="5.0" onMouseClicked="#minBtnClicked" pickOnBounds="true" preserveRatio="true">
                      <Image url="@/icons/minus.png" />
                  </ImageView>
              </Pane>

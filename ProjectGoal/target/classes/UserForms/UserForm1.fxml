@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
-<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ControllerMain">
+<BorderPane fx:id="userBorderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ControllerUser">
    <center>
       <Pane fx:id="userPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" minWidth="800.0" prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: #361040; -fx-border-color: #b6f2e1; -fx-border-width: 0.4;">
           <GridPane alignment="CENTER" layoutX="1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" minWidth="800.0" prefHeight="700.0" prefWidth="800.0">
@@ -21,43 +21,55 @@
               </rowConstraints>
               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="294.0" text="Your name: " textFill="#b6f2e1">
                   <font>
-                      <Font size="31.0" />
+                      <Font name="Montserrat Regular" size="31.0" />
                   </font>
               </Label>
               <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="76.0" prefHeight="43.0" prefWidth="411.0" text="Your email adress: " textFill="#b6f2e1" GridPane.rowIndex="1">
                  <font>
-                     <Font size="31.0" />
+                     <Font name="Montserrat Regular" size="31.0" />
                  </font>
               </Label>
               <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="251.0" prefHeight="43.0" prefWidth="362.0" text="Your password: " textFill="#b6f2e1" GridPane.rowIndex="2">
                  <font>
-                     <Font size="31.0" />
+                     <Font name="Montserrat Regular" size="31.0" />
                  </font>
               </Label>
               <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="426.0" prefHeight="43.0" prefWidth="336.0" text="Change data? " textFill="#b6f2e1" GridPane.rowIndex="3">
                  <font>
-                     <Font size="31.0" />
+                     <Font name="Montserrat Regular" size="31.0" />
                  </font>
               </Label>
               <Label fx:id="emailData" alignment="BOTTOM_LEFT" contentDisplay="CENTER" layoutX="10.0" layoutY="76.0" prefHeight="43.0" prefWidth="407.0" text="Info" textFill="#b6f2e1" GridPane.columnIndex="1" GridPane.rowIndex="1">
                  <font>
-                     <Font size="31.0" />
+                     <Font name="Montserrat Regular" size="31.0" />
                  </font>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
               </Label>
               <Label fx:id="nameData" alignment="BOTTOM_LEFT" contentDisplay="CENTER" layoutX="410.0" layoutY="76.0" prefHeight="43.0" prefWidth="407.0" text="Info" textFill="#b6f2e1" GridPane.columnIndex="1">
                  <font>
-                     <Font size="31.0" />
+                     <Font name="Montserrat Regular" size="31.0" />
                  </font>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
               </Label>
               <Label fx:id="passData" alignment="BOTTOM_LEFT" contentDisplay="CENTER" layoutX="410.0" layoutY="76.0" prefHeight="43.0" prefWidth="407.0" text="Info" textFill="#b6f2e1" GridPane.columnIndex="1" GridPane.rowIndex="2">
                  <font>
-                     <Font size="31.0" />
+                     <Font name="Montserrat Regular" size="31.0" />
                  </font>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
               </Label>
-              <Button fx:id="changeDataBtn" mnemonicParsing="false" onMouseClicked="#changeDataClicked" prefHeight="60.0" prefWidth="258.0" style="-fx-background-color:  #361040; -fx-border-width: 1px; -fx-border-color: #b6f2e1;" text="CHANGE" textFill="#b6f2e1" GridPane.columnIndex="1" GridPane.rowIndex="3">
+              <Button fx:id="changeDataBtn" mnemonicParsing="false" onMouseClicked="#changeDataClicked" onMouseExited="#changeDataExited" onMouseMoved="#changeDataMoved" prefHeight="45.0" prefWidth="199.0" style="-fx-background-color:  #361040; -fx-border-width: 1px; -fx-border-color: #b6f2e1;" text="CHANGE" textFill="#b6f2e1" GridPane.columnIndex="1" GridPane.rowIndex="3">
                   <font>
                       <Font size="18.0" />
                   </font>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
               </Button>
           </GridPane>
       </Pane>

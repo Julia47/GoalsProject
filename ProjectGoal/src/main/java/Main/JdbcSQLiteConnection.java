@@ -38,8 +38,8 @@ public class JdbcSQLiteConnection {
         }
     }
 
-    public void deleteUser(Integer id) {
-        String sql = "DELETE FROM \"user\" WHERE id_user=" + id + ";";
+    public void deleteUser(String email) {
+        String sql = "DELETE FROM \"user\" WHERE email=\"" + email + "\";";
         try{
             Connection conn = this.connect();
             PreparedStatement pstmt = conn.prepareStatement(sql);

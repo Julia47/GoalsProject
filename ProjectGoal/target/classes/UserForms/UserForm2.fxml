@@ -3,10 +3,10 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-
-<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ControllerMain">
+<BorderPane fx:id="userBorderPane2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ControllerUser">
    <center>
       <Pane fx:id="changeUserPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" minWidth="800.0" prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: #361040; -fx-border-color: #b6f2e1; -fx-border-width: 0.4;">
           <GridPane alignment="CENTER" layoutX="1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" minWidth="800.0" prefHeight="700.0" prefWidth="800.0">
@@ -20,23 +20,23 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
-              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="294.0" text="Your name: " textFill="#b6f2e1">
+              <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" prefHeight="43.0" prefWidth="294.0" text="Your name: " textFill="#b6f0df">
                   <font>
-                      <Font size="31.0" />
+                      <Font name="Montserrat Regular" size="31.0" />
                   </font>
               </Label>
               <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="76.0" prefHeight="43.0" prefWidth="411.0" text="Your email adress: " textFill="#b6f2e1" GridPane.rowIndex="1">
                   <font>
-                      <Font size="31.0" />
+                      <Font name="Montserrat Regular" size="31.0" />
                   </font>
               </Label>
               <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="251.0" prefHeight="43.0" prefWidth="362.0" text="Your password: " textFill="#b6f2e1" GridPane.rowIndex="2">
                   <font>
-                      <Font size="31.0" />
+                      <Font name="Montserrat Regular" size="31.0" />
                   </font>
               </Label>
       
-              <Button fx:id="canselDataBtn" mnemonicParsing="false" onMouseClicked="#changeDataClicked" prefHeight="50.0" prefWidth="295.0" style="-fx-background-color:  #361040; -fx-border-width: 1px; -fx-border-color: #b6f2e1;" text="CANSEL" textFill="#b6f2e1" GridPane.columnIndex="0" GridPane.rowIndex="3">
+              <Button fx:id="canselDataBtn" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onMouseClicked="#canselDataClicked" onMouseExited="#canselDataExited" onMouseMoved="#canselDataMoved" prefHeight="50.0" prefWidth="194.0" style="-fx-background-color:  #361040; -fx-border-width: 1px; -fx-border-color: #b6f2e1;" text="CANSEL" textFill="#b6f2e1" GridPane.columnIndex="0" GridPane.rowIndex="3">
                   <font>
                       <Font size="18.0" />
                   </font>
@@ -45,23 +45,23 @@
                </GridPane.margin>
               </Button>
       
-              <TextField fx:id="changeName" maxHeight="44.0" maxWidth="300.0" minHeight="44.0" minWidth="300.0" prefHeight="44.0" prefWidth="300.0" promptText="Enter your name" style="-fx-border-color: #b6f2e1;" GridPane.columnIndex="1" GridPane.rowIndex="0">
+              <TextField fx:id="changeName" maxHeight="44.0" maxWidth="300.0" minHeight="44.0" minWidth="300.0" prefHeight="44.0" prefWidth="300.0" promptText="Enter your name" style="-fx-border-color: #361040; -fx-text-inner-color: #b6f0df; -fx-background-color: #361040;" GridPane.columnIndex="1" GridPane.rowIndex="0">
                <GridPane.margin>
                   <Insets left="50.0" />
                </GridPane.margin>
             </TextField>
-              <TextField fx:id="changeMail" maxHeight="44.0" maxWidth="300.0" minHeight="44.0" minWidth="300.0" prefHeight="44.0" prefWidth="300.0" promptText="Email address" style="-fx-border-color: #b6f2e1;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <TextField fx:id="changeMail" maxHeight="44.0" maxWidth="300.0" minHeight="44.0" minWidth="300.0" prefHeight="44.0" prefWidth="300.0" promptText="Email address" style="-fx-border-color: #361040; -fx-text-inner-color: #b6f0df; -fx-background-color: #361040;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="50.0" />
                </GridPane.margin>
             </TextField>
-              <PasswordField fx:id="changePassw" maxHeight="44.0" maxWidth="300.0" minHeight="44.0" minWidth="300.0" prefHeight="44.0" prefWidth="300.0" promptText="Password" style="-fx-border-color: #b6f2e1;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+              <PasswordField fx:id="changePassw" maxHeight="44.0" maxWidth="300.0" minHeight="44.0" minWidth="300.0" prefHeight="44.0" prefWidth="300.0" promptText="Password" style="-fx-border-color: #361040; -fx-text-inner-color: #b6f0df; -fx-background-color: #361040;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="50.0" />
                </GridPane.margin>
             </PasswordField>
       
-              <Button fx:id="changeDataBtn" mnemonicParsing="false" onMouseClicked="#changeDataClicked" prefHeight="49.0" prefWidth="301.0" style="-fx-background-color:  #361040; -fx-border-width: 1px; -fx-border-color: #b6f2e1;" text="CHANGE" textFill="#b6f2e1" GridPane.columnIndex="1" GridPane.rowIndex="3">
+              <Button fx:id="changeDataBtn2" mnemonicParsing="false" onMouseClicked="#changeDataClicked2" onMouseExited="#changeDataExited2" onMouseMoved="#changeDataMoved2" prefHeight="49.0" prefWidth="192.0" style="-fx-background-color:  #361040; -fx-border-width: 1px; -fx-border-color: #b6f2e1;" text="CHANGE" textFill="#b6f2e1" GridPane.columnIndex="1" GridPane.rowIndex="3">
                   <font>
                       <Font size="18.0" />
                   </font>
@@ -69,6 +69,29 @@
                   <Insets left="50.0" />
                </GridPane.margin>
               </Button>
+            <Line endX="100.0" startX="-180.0" stroke="#b6f2e1" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets left="60.0" top="50.0" />
+               </GridPane.margin>
+            </Line>
+            <Line endX="100.0" layoutX="651.0" layoutY="123.0" startX="-180.0" stroke="#b6f2e1" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="60.0" top="50.0" />
+               </GridPane.margin>
+            </Line>
+            <Line endX="100.0" layoutX="591.0" layoutY="273.0" startX="-180.0" stroke="#b6f2e1" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="60.0" top="50.0" />
+               </GridPane.margin>
+            </Line>
+              <Label fx:id="invMailLabel" prefHeight="23.0" prefWidth="258.0" text=" Invalid!! This email is not available" textFill="#361040" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="60.0" top="100.0" />
+               </GridPane.margin></Label>
+              <Label fx:id="labelEmpty" prefHeight="23.0" prefWidth="258.0" text=" Invalid!! Empty fields" textFill="#361040" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="60.0" top="100.0" />
+               </GridPane.margin></Label>
           </GridPane>
       </Pane>
    </center>

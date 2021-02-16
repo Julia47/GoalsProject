@@ -9,14 +9,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.util.Objects;
 
 public class ControllerMain {
-
 
     public ImageView userBtn;
     public ImageView starBtn;
@@ -28,22 +29,10 @@ public class ControllerMain {
     public BorderPane borderPane;
     public ImageView maxBtn;
     public BorderPane mainBorderPane;
-    @FXML
-    public Label emailData = new Label();
-    @FXML
-    public Label nameData;
-    @FXML
-    public Label passData = new Label();
-    public Button changeDataBtn;
-    public TextField changeName;
-    public TextField changeMail;
-    public PasswordField changePassw;
-    @FXML
-    public Button canselDataBtn;
     public Pane calendarPane;
-    public Pane userPane;
-    public Pane changeUserPane;
-
+    public ImageView closeBtn;
+    public ImageView minBtn;
+    public Rectangle closeBtnBorder;
 
     public void userBtnClicked() {
 
@@ -53,8 +42,12 @@ public class ControllerMain {
         up2Pane.setStyle("-fx-background-color:  #351c4d;");
         up3Pane.setStyle("-fx-background-color:  #351c4d;");
 
+        mainBorderPane.setCenter(setInfoToUserFields());
+    }
+
+    public Parent setInfoToUserFields(){
         User user = User.getInstance();
-        Parent root = null;
+        Parent root;
         try {
             root= FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("UserForms/UserForm1.fxml")));
             Label nameLabel = (Label) root.lookup("#nameData");
@@ -63,14 +56,13 @@ public class ControllerMain {
             if (emailLabel!=null) emailLabel.setText(user.getE_mail());
             Label passLabel = (Label) root.lookup("#passData");
             if (passLabel!=null) passLabel.setText(user.getPassw());
+            return root;
         } catch (Exception ignored) {
         }
-        mainBorderPane.setCenter(root);
-
+        return null;
     }
 
     public void starBtnClicked() {
-       // mainPane.setStyle("-fx-background-color: #0b253a; -fx-border-color: #b6f2e1; -fx-border-width: 0.4;");
         menuPane.setStyle("-fx-background-color: #050828; -fx-border-color: #b6f2e1; -fx-border-width: 0.4;");
         borderPane.setStyle("-fx-border-color: #b6f2e1; -fx-background-color: #050828; -fx-border-width: 0.4;");
         up1Pane.setStyle("-fx-background-color: #050828;");
@@ -86,7 +78,6 @@ public class ControllerMain {
     }
 
     public void calendarBtnClicked() {
-       // mainPane.setStyle("-fx-background-color: #0a4445; -fx-border-color: #b6f2e1; -fx-border-width: 0.4;");
         menuPane.setStyle("-fx-background-color: #002c3e; -fx-border-color: #b6f2e1; -fx-border-width: 0.4;");
         borderPane.setStyle("-fx-border-color: #b6f2e1; -fx-background-color: #002c3e; -fx-border-width: 0.4;");
         up1Pane.setStyle("-fx-background-color: #002c3e;");
@@ -106,16 +97,16 @@ public class ControllerMain {
         stages.setMaximized(true);
     }
 
-    public void changeDataClicked() {
-        changeDataBtn.setStyle("-fx-background-color: #361040; -fx-border-width: 3px; -fx-border-color:  #b6f2e1");
-
-//        Parent root = null;
-//        try {
-//            root= FXMLLoader.load(getClass().getResource("UserForm2.fxml"));
-//        } catch (Exception ignored) {
-//        }
-//        mainBorderPane.setCenter(root);
+    public void closeBtnClicked(MouseEvent mouseEvent) {
+        Stage stages = (Stage) maxBtn.getScene().getWindow();
+        stages.close();
     }
+
+    public void minBtnClicked(MouseEvent mouseEvent) {
+        Stage stages = (Stage) maxBtn.getScene().getWindow();
+        stages.setMaximized(false);
+    }
+
 }
 
 
