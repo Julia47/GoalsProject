@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: #34273B;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ControllerStart">
+   <Button fx:id="createBtn" layoutX="144.0" layoutY="582.0" mnemonicParsing="false" onMouseClicked="#createClicked" prefHeight="60.0" prefWidth="310.0" style="-fx-background-color: #34273B; -fx-border-width: 1px; -fx-border-color: #b6f2e1;" text="CREATE" textFill="#b6f2e1">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Button>
+   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="140.0" layoutY="109.0" prefHeight="75.0" prefWidth="320.0" text="CREATE  YOUR  ACCOUNT" textAlignment="CENTER" textFill="#b6f2e1">
+      <font>
+         <Font size="23.0" />
+      </font>
+   </Label>
+   <TextField fx:id="createName" layoutX="145.0" layoutY="225.0" prefHeight="44.0" prefWidth="310.0" promptText="Enter your name" style="-fx-border-color: #b6f2e1;" />
+   <TextField fx:id="createMail" layoutX="144.0" layoutY="344.0" prefHeight="44.0" prefWidth="310.0" promptText="Email address" style="-fx-border-color: #b6f2e1;" />
+   <PasswordField fx:id="createPassw" layoutX="144.0" layoutY="467.0" prefHeight="44.0" prefWidth="310.0 " promptText="Password" style="-fx-border-color: #b6f2e1;" />
+   <Label fx:id="invMailLabel" layoutX="145.0" layoutY="400.0" prefHeight="23.0" prefWidth="258.0" text=" Invalid!! This email is not available" textFill="#34273B" />
+   <Label fx:id="labelEmpty" layoutX="145.0" layoutY="523.0" prefHeight="23.0" prefWidth="258.0" text=" Invalid!! Empty fields" textFill="#34273B" />
+</AnchorPane>

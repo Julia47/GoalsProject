@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="740.0" minWidth="900.0" prefHeight="740.0" prefWidth="900.0" style="-fx-border-color: #457096; -fx-border-width: 0.8;" BorderPane.alignment="BOTTOM_RIGHT" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerMain">
+   <top>
+      <BorderPane fx:id="borderPane" maxHeight="40.0" minHeight="40.0" minWidth="900.0" prefHeight="40.0" style="-fx-border-color: #b6f2e1; -fx-background-color: #050828; -fx-border-width: 0.4;" BorderPane.alignment="BOTTOM_LEFT">
+         <center>
+             <Pane fx:id="up3Pane" maxHeight="30.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="500.0" prefHeight="30.0" style="-fx-background-color: #050828; " BorderPane.alignment="CENTER" />
+         </center>
+         <right>
+             <Pane fx:id="up2Pane" maxHeight="30.0" maxWidth="150.0" minHeight="30.0" minWidth="150.0" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #050828;" BorderPane.alignment="CENTER">
+                 <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="113.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@/icons/x.png" />
+                 </ImageView>
+                 <ImageView fx:id="maxBtn" fitHeight="23.0" fitWidth="23.0" layoutX="64.0" layoutY="4.0" onMouseClicked="#maxBtnClicked" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@/icons/max.png" />
+                 </ImageView>
+                 <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@/icons/minus.png" />
+                 </ImageView>
+             </Pane>
+         </right>
+         <left>
+             <Pane maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #050828;" BorderPane.alignment="CENTER">
+                 <Label fx:id="up1Pane" alignment="CENTER" contentDisplay="CENTER" layoutY="-1.0" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" prefWidth="250.0" text="TOGETHER BETTER" textAlignment="CENTER" textFill="#b6f2e1">
+                     <font>
+                         <Font size="23.0" />
+                     </font>
+                 </Label>
+             </Pane>
+         </left>
+      </BorderPane>
+   </top>
+   <left>
+       <Pane fx:id="menuPane" minHeight="700.0" minWidth="100.0" prefHeight="700.0" prefWidth="100.0" style="-fx-background-color: #050828; -fx-border-color: #b6f2e1; -fx-border-width: 0.4;" BorderPane.alignment="CENTER">
+           <ImageView fx:id="calendarBtn" fitHeight="70.0" fitWidth="70.0" layoutX="15.0" layoutY="507.0" onMouseClicked="#calendarBtnClicked" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                   <Cursor fx:constant="SW_RESIZE" />
+               </cursor>
+               <Image url="@/icons/calendar.png" />
+           </ImageView>
+           <ImageView fx:id="userBtn" fitHeight="70.0" fitWidth="70.0" layoutX="15.0" layoutY="121.0" onMouseClicked="#userBtnClicked" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                   <Cursor fx:constant="SW_RESIZE" />
+               </cursor>
+               <Image url="@/icons/user.png" />
+           </ImageView>
+           <ImageView fx:id="starBtn" fitHeight="70.0" fitWidth="70.0" layoutX="15.0" layoutY="315.0" onMouseClicked="#starBtnClicked" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                   <Cursor fx:constant="SW_RESIZE" />
+               </cursor>
+               <Image url="@/icons/star.png" />
+           </ImageView>
+       </Pane>
+   </left>
+   <center>
+       <Pane minHeight="700.0" minWidth="800.0" prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: #0b253a; -fx-border-color: #b6f2e1; -fx-border-width: 0.4;" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
