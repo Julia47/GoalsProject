@@ -6,10 +6,10 @@ public class Task {
     private String name_task;
     private String time_start;
     private String time_end;
-    private String amount;
+    private Integer amount;
     private String weekday;
 
-    public Task(String id, String id_goals, String name_task, String time_start, String time_end, String amount, String weekday) {
+    public Task(String id, String id_goals, String name_task, String time_start, String time_end, Integer amount, String weekday) {
         this.id = id;
         this.id_goals = id_goals;
         this.name_task = name_task;
@@ -59,11 +59,11 @@ public class Task {
         this.time_end = time_end;
     }
 
-    public String getAmount() {
+    public Integer getAmount() {
         return amount;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(Integer amount) {
         this.amount = amount;
     }
 

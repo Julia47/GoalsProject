@@ -67,13 +67,14 @@ public class ControllerStart {
         String passw = createPassw.getText();
         String empty = "";
 
+        GlobalRepo connect = new GlobalRepo();
 
-        if (username.equals(empty) || e_mail.equals(empty) || passw.equals(empty) || searchMailBool(e_mail)) {
+
+        if (username.equals(empty) || e_mail.equals(empty) || passw.equals(empty) || connect.searchEmail(e_mail)) {
             if(username.equals(empty) || e_mail.equals(empty) || passw.equals(empty) ){
                 invMailLabel.setTextFill(Paint.valueOf("#34273B"));
             }
             else {
-                searchMail(e_mail);
                 invMailLabel.setTextFill(Paint.valueOf("#888888"));
             }
             labelEmpty.setTextFill(Paint.valueOf("#888888"));
@@ -86,25 +87,17 @@ public class ControllerStart {
 
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("StartForms/SignIn.fxml")));
             stages.setTitle("SignIn");
-            stages.setWidth(900);
-            stages.setHeight(770);
-            stages.setScene(new Scene(root, 900, 770));
+            stages.setWidth(600);
+            stages.setHeight(800);
+            stages.setScene(new Scene(root, 600, 800));
             stages.show();
         }
 
     }
 
     public void createUser(String username, String e_mail, String passw){
-
-            User user = UserHolder.getInstance();
-            user.setUsername(username);
-            user.setE_mail(e_mail);
-            user.setPassw(passw);
-
             GlobalRepo connect = new GlobalRepo();
-            connect.insertUser(user.getUsername(), user.getPassw(), user.getE_mail());
-            connect.selectMail();
-
+            connect.insertUser(username, passw, e_mail);
     }
 
     public void signInBtnClicked(MouseEvent mouseEvent) throws IOException {
@@ -112,11 +105,10 @@ public class ControllerStart {
         GlobalRepo connect = new GlobalRepo();
         String mail = emailField.getText();
         String pass = passField.getText();
-        User user = UserHolder.getInstance();
-        user.setE_mail(mail);
-        user.setPassw(pass);
-        user.setUsername(connect.searchName(mail));
-        if (searchPassBool(pass, mail)){
+
+        Boolean b = connect.selectUser(mail, pass);
+
+        if (b){
             System.out.println("Enter");
 
             Stage stages = (Stage) signInBtn.getScene().getWindow();
@@ -135,43 +127,6 @@ public class ControllerStart {
         }
     }
 
-    public Boolean searchMailBool(String e_mail) {
-        GlobalRepo connect = new GlobalRepo();
-        List<String> mail;
-        boolean b = false;
-        mail = connect.selectMail();
-        for (String s : mail) {
-            if (s.equals(e_mail)) {
-                b = true;
-                break;
-                }
-            }
-        return b;
-    }
-
-    public String searchMail(String email){
-        GlobalRepo connect = new GlobalRepo();
-        List<String> mail;
-        String str = "";
-        mail = connect.selectMail();
-        for(String m: mail){
-            if (m.equals(email)) {
-                str = m;
-            }
-        }
-        return str;
-    }
-
-    public Boolean searchPassBool(String pass, String mail){
-        GlobalRepo connect = new GlobalRepo();
-        String password;
-        boolean t = false;
-        password = connect.selectPass(mail);
-            if (password.equals(pass)) {
-                t = true;
-            }
-        return t;
-    }
 
     public void createExited(MouseEvent mouseEvent) {
         createBtn.setStyle("-fx-background-color: #34273B; -fx-border-width: 1px; -fx-border-color: #b6f2e1;");

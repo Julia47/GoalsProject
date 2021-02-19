@@ -5,14 +5,10 @@ import Entity.Goal;
 import Entity.Task;
 import Entity.User;
 import Entity.UserHolder;
-
-
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 public class GlobalRepo {
 
@@ -48,25 +44,26 @@ public class GlobalRepo {
         }
     }
 
-    //ADD id_user
-    public void insertGoal(String name_goal, String category, Date date_goal) {
-        String sql = "INSERT INTO goal(name_goal, category, date_goal) VALUES(?,?,?)";
-        String id_user;
+
+    public void insertGoal(String name_goal, String category, Date date) {
+        String sql = "INSERT INTO goals(name_goal, category, date, id_user) VALUES(?,?,?,?)";
+        User user = UserHolder.getInstance();
+
         try{
             Connection conn = this.connect();
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, name_goal);
-            pstmt.setString(2, category);
-            pstmt.setString(3, String.valueOf(date_goal));
+            pstmt.setString(2, String.valueOf(category));
+            pstmt.setString(3, String.valueOf(date));
+            pstmt.setString(4, user.getId_user());
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public void insertTasks(String name_tasks){
+    public void insertTasks(String name_tasks, Integer amount){
         String sql = "INSERT INTO tasks (id_goals, name_task, time_start, time_end, amount, weekday) VALUES(?,?,?,?,?,?)";
-
         try{
             Connection conn = this.connect();
             PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -74,7 +71,7 @@ public class GlobalRepo {
             pstmt.setString(2, name_tasks);
             pstmt.setString(3, null);
             pstmt.setString(4, null);
-            pstmt.setString(5, null);
+            pstmt.setInt(5, amount);
             pstmt.setString(6, null);
             pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -94,11 +91,35 @@ public class GlobalRepo {
         }
     }
 
+    public void deleteGoal(String id) {
+        String sql = "DELETE FROM \"goals\" WHERE id=\"" + id + "\";";
+        try{
+            Connection conn = this.connect();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.executeUpdate();
+            // conn.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void deleteTask(String id) {
+        String sql = "DELETE FROM \"tasks\" WHERE id=\"" + id + "\";";
+        try{
+            Connection conn = this.connect();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.executeUpdate();
+            // conn.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public List<Goal> selectGoals() {
 
         User user = UserHolder.getInstance();
-        //String id_user = user.getId_user();
-        String id_user = "38";
+        String id_user = user.getId_user();
+        //String id_user = "38";
         String sql = "SELECT * FROM \"goals\" WHERE id_user=" + id_user + ";";
         List<Goal> goals = new ArrayList<>();
         try{
@@ -124,7 +145,7 @@ public class GlobalRepo {
             Statement stmt  = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
-                tasks.add(new Task(rs.getString("id"),  rs.getString("id_goals"), rs.getString("name_task"), null, null, null, null));
+                tasks.add(new Task(rs.getString("id"),  rs.getString("id_goals"), rs.getString("name_task"), null, null, rs.getInt("amount"), null));
                 //goals.add(rs.getString("goals"));
             }
         } catch (SQLException e) {
@@ -133,53 +154,55 @@ public class GlobalRepo {
         return tasks;
     }
 
-    public List<String> selectMail() {
+    public Boolean selectUser(String email, String pass) {
 
-        String sql = "SELECT email FROM \"user\"";
-        List<String> mail = new ArrayList<>();
+        String sql = "SELECT * FROM \"user\" WHERE email=\"" + email + "\" AND pass=\"" + pass + "\";";
+        User user = UserHolder.getInstance();
         try{
             Connection conn = this.connect();
             Statement stmt  = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-                while (rs.next()) {
-                    mail.add(rs.getString("email"));
-                }
-            } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return mail;
-    }
-
-    public String searchName(String mail){
-        String sql = "SELECT username FROM \"user\" WHERE email=\""+mail+"\";";
-        String name = "";
-        try{
-            Connection conn = this.connect();
-            Statement stmt  = conn.createStatement();
-            ResultSet rs    = stmt.executeQuery(sql);
             while (rs.next()) {
-                name = rs.getString("username");
+                user.setUsername(rs.getString("username"));
+                user.setE_mail(rs.getString("email"));
+                user.setId_user(rs.getString("id"));
+                user.setPassw(rs.getString("pass"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return name;
+        if (user.getId_user()!=null){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
-    public String selectPass(String mail) {
+    public Boolean searchEmail(String email) {
 
-        String sql = "SELECT pass FROM \"user\" WHERE email=\""+mail+"\";";
-        String pass = "";
+        String sql = "SELECT email FROM \"user\" WHERE email=\"" + email +  "\";";
+        String str = "" ;
         try{
             Connection conn = this.connect();
             Statement stmt  = conn.createStatement();
-            ResultSet rs    = stmt.executeQuery(sql);
+            ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
-                pass = rs.getString("pass");
+                str = rs.getString("email");
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return pass;
+        if (!str.isEmpty()){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
+
+
+
+
+
 }

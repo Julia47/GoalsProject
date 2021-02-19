@@ -48,13 +48,13 @@ public class ControllerUser {
         String passw = changePassw.getText();
         String empty = "";
         ControllerStart controllerStart = new ControllerStart();
+        GlobalRepo connect = new GlobalRepo();
         
-        if (username.equals(empty) || e_mail.equals(empty) || passw.equals(empty) || controllerStart.searchMailBool(e_mail)) {
+        if (username.equals(empty) || e_mail.equals(empty) || passw.equals(empty) || connect.searchEmail(e_mail)) {
             if(username.equals(empty) || e_mail.equals(empty) || passw.equals(empty) ){
                 invMailLabel.setTextFill(Paint.valueOf("#34273B"));
             }
             else {
-                controllerStart.searchMail(e_mail);
                 invMailLabel.setTextFill(Paint.valueOf("#888888"));
             }
             labelEmpty.setTextFill(Paint.valueOf("#888888"));
@@ -62,7 +62,6 @@ public class ControllerUser {
 
         else {
             User user = UserHolder.getInstance();
-            GlobalRepo connect = new GlobalRepo();
             connect.deleteUser(user.getE_mail());
             controllerStart.createUser(username, e_mail, passw);
             ControllerMain controllerMain = new ControllerMain();

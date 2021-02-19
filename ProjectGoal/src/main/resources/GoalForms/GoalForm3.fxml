@@ -15,15 +15,16 @@
                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="808.0" minWidth="10.0" prefWidth="714.0" />
                 </columnConstraints>
                 <rowConstraints>
-                    <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="121.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="121.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="285.0" minHeight="0.0" prefHeight="164.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="602.0" minHeight="10.0" prefHeight="99.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="602.0" minHeight="10.0" prefHeight="160.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="602.0" minHeight="10.0" prefHeight="159.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="66.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="124.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="108.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="285.0" minHeight="0.0" prefHeight="119.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="602.0" minHeight="10.0" prefHeight="112.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="602.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="602.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
                 </rowConstraints>
 
-                <TextField fx:id="taskTextField" maxHeight="44.0" maxWidth="500.0" minHeight="44.0" minWidth="300.0" prefHeight="44.0" prefWidth="497.0" promptText="Enter task" style="-fx-border-color: #0b253a; -fx-text-inner-color: #b6f0df; -fx-background-color: #0b253a;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <TextField fx:id="taskTextField" maxHeight="44.0" maxWidth="500.0" minHeight="44.0" minWidth="300.0" prefHeight="44.0" prefWidth="497.0" promptText="Enter task" style="-fx-border-color: #0b253a; -fx-text-inner-color: #b6f0df; -fx-background-color: #0b253a;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <GridPane.margin>
                         <Insets left="40.0" />
                     </GridPane.margin>
@@ -32,13 +33,13 @@
                     </font>
                 </TextField>
 
-                <Line endX="100.0" startX="-400.0" stroke="#b6f2e1" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <Line endX="100.0" startX="-400.0" stroke="#b6f2e1" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <GridPane.margin>
                         <Insets left="50.0" top="50.0" />
                     </GridPane.margin>
                 </Line>
                 
-                <Button fx:id="canselTaskBtn" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onMouseClicked="#canselTaskClicked" onMouseExited="#canselTaskExited" onMouseMoved="#canselTaskMoved" prefHeight="35.0" prefWidth="118.0" style="-fx-background-color:  #0b253a; -fx-border-width: 1px; -fx-border-color: #b6f2e1;" text="CANSEL" textFill="#b6f2e1" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                <Button fx:id="canselTaskBtn" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onMouseClicked="#canselTaskClicked" onMouseExited="#canselTaskExited" onMouseMoved="#canselTaskMoved" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color:  #0b253a; -fx-border-width: 1px; -fx-border-color: #b6f2e1;" text="CANSEL" textFill="#b6f2e1" GridPane.columnIndex="1" GridPane.rowIndex="5">
                     <font>
                         <Font size="18.0" />
                     </font>
@@ -46,7 +47,7 @@
                         <Insets left="170.0" />
                     </GridPane.margin>
                 </Button>
-                <Button fx:id="addTaskBtn" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onMouseClicked="#addTaskClicked" onMouseExited="#addDataExited" onMouseMoved="#addDataMoved" prefHeight="35.0" prefWidth="219.0" style="-fx-background-color:  #0b253a; -fx-border-width: 1px; -fx-border-color: #b6f2e1;" text="ADD TASK" textFill="#b6f2e1" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                <Button fx:id="addTaskBtn" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onMouseClicked="#addTaskClicked" onMouseExited="#addTaskExited" onMouseMoved="#addTaskMoved" prefHeight="35.0" prefWidth="219.0" style="-fx-background-color:  #0b253a; -fx-border-width: 1px; -fx-border-color: #b6f2e1;" text="ADD TASK" textFill="#b6f2e1" GridPane.columnIndex="1" GridPane.rowIndex="5">
                     <font>
                         <Font size="18.0" />
                     </font>
@@ -55,10 +56,90 @@
                     </GridPane.margin>
                 </Button>
              
-                <Label fx:id="labelEmpty" prefHeight="23.0" prefWidth="258.0" text=" Invalid!! Empty fields" textFill="#0b253a" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                <Label fx:id="labelEmpty" prefHeight="23.0" prefWidth="258.0" text=" Invalid!! Empty fields" textFill="#0b253a" GridPane.columnIndex="1" GridPane.rowIndex="5">
                     <GridPane.margin>
                         <Insets bottom="80.0" left="50.0" />
                     </GridPane.margin></Label>
+            <Spinner fx:id="spinnerMin" prefHeight="28.0" prefWidth="94.0" style="-fx-background-color: #0b253a; -fx-border-color: #b6f2e1;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="450.0" />
+               </GridPane.margin>
+                <valueFactory>
+                    <SpinnerValueFactory.IntegerSpinnerValueFactory max="59" min="0" />
+                </valueFactory>
+            </Spinner>
+                <Spinner fx:id="spinnerHour" prefHeight="28.0" prefWidth="102.0" style="-fx-background-color: #0b253a; -fx-border-color: #b6f2e1;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                    <GridPane.margin>
+                        <Insets left="170.0" />
+                    </GridPane.margin>
+                    <valueFactory>
+                        <SpinnerValueFactory.IntegerSpinnerValueFactory max="23" min="0" />
+                    </valueFactory>
+                </Spinner>
+            <Label style="-fx-text-fill: #b6f2e1;" text="Enter minutes" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="325.0" />
+               </GridPane.margin></Label>
+            <Label layoutX="429.0" layoutY="396.0" style="-fx-text-fill: #b6f2e1;" text="Enter hours" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+            </Label>
+            <CheckBox layoutX="104.0" layoutY="300.0" mnemonicParsing="false" style="-fx-text-fill: #b6f2e1;" text="Mon" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="222.0" />
+               </GridPane.margin></CheckBox>
+            <CheckBox layoutX="154.0" layoutY="300.0" mnemonicParsing="false" style="-fx-text-fill: #b6f2e1;" text="Tue" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="283.0" />
+               </GridPane.margin>
+            </CheckBox>
+            <CheckBox layoutX="224.0" layoutY="300.0" mnemonicParsing="false" style="-fx-text-fill: #b6f2e1;" text="Sat" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="500.0" />
+               </GridPane.margin>
+            </CheckBox>
+            <CheckBox layoutX="264.0" layoutY="300.0" mnemonicParsing="false" style="-fx-text-fill: #b6f2e1;" text="Fri" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="455.0" />
+               </GridPane.margin>
+            </CheckBox>
+            <CheckBox layoutX="264.0" layoutY="300.0" mnemonicParsing="false" style="-fx-text-fill: #b6f2e1;" text="Thu" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="400.0" />
+               </GridPane.margin>
+            </CheckBox>
+            <CheckBox layoutX="264.0" layoutY="300.0" mnemonicParsing="false" style="-fx-text-fill: #b6f2e1;" text="Wed" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="340.0" />
+               </GridPane.margin>
+            </CheckBox>
+            <CheckBox layoutX="254.0" layoutY="300.0" mnemonicParsing="false" style="-fx-text-fill: #b6f2e1;" text="Sun" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="170.0" />
+               </GridPane.margin>
+            </CheckBox>
+            <Label layoutX="154.0" layoutY="378.0" prefHeight="16.0" prefWidth="115.0" style="-fx-text-fill: #b6f2e1;" text="Choose weekday" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+            </Label>
+            <Label layoutX="154.0" layoutY="301.0" prefHeight="16.0" prefWidth="242.0" style="-fx-text-fill: #b6f2e1;" text="Amount of reminding" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="170.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Spinner fx:id="amountReminding" layoutX="274.0" layoutY="465.0" prefHeight="28.0" prefWidth="97.0" style="-fx-background-color: #0b253a; -fx-border-color: #b6f2e1;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <valueFactory>
+                  <SpinnerValueFactory.IntegerSpinnerValueFactory max="50" min="0" />
+               </valueFactory>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+            </Spinner>
             </GridPane>
         </Pane>
     </center>

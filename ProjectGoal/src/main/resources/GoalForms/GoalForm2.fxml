@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.collections.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -60,27 +58,32 @@
                         <Insets left="325.0" />
                     </GridPane.margin>
                 </Button>
-            <ChoiceBox fx:id="chooseCategory" prefHeight="28.0" prefWidth="217.0" style="-fx-border-color: #b6f2e1; -fx-background-color: white;" value="Choose category" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                <items>
-                    <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="Sport" />
-                        <String fx:value="Health" />
-                        <String fx:value="Family" />
-                        <String fx:value="Career" />
-                        <String fx:value="Money" />
-                        <String fx:value="Travels" />
-                        <String fx:value="Personal Growth" />
-                        <String fx:value="Other" />
-                    </FXCollections>
-                </items>
-               <GridPane.margin>
-                  <Insets left="330.0" />
-               </GridPane.margin>
-            </ChoiceBox>
+<!--            <ChoiceBox fx:id="chooseCategory" prefHeight="28.0" prefWidth="217.0" style="-fx-border-color: #b6f2e1; -fx-background-color: white;" value="Choose category" GridPane.columnIndex="1" GridPane.rowIndex="3">-->
+<!--                <items>-->
+<!--                    <FXCollections fx:factory="observableArrayList">-->
+<!--                        <String fx:value="Sport" />-->
+<!--                        <String fx:value="Health" />-->
+<!--                        <String fx:value="Family" />-->
+<!--                        <String fx:value="Career" />-->
+<!--                        <String fx:value="Money" />-->
+<!--                        <String fx:value="Travels" />-->
+<!--                        <String fx:value="Personal Growth" />-->
+<!--                        <String fx:value="Other" />-->
+<!--                    </FXCollections>-->
+<!--                </items>-->
+<!--               <GridPane.margin>-->
+<!--                  <Insets left="330.0" />-->
+<!--               </GridPane.margin>-->
+<!--            </ChoiceBox>-->
                 <Label fx:id="labelEmpty" prefHeight="23.0" prefWidth="258.0" text=" Invalid!! Empty fields" textFill="#0b253a" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="80.0" left="50.0" />
                </GridPane.margin></Label>
+            <ColorPicker fx:id="chooseColor" prefHeight="26.0" prefWidth="223.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="325.0" />
+               </GridPane.margin>
+            </ColorPicker>
             </GridPane>
         </Pane>
     </center>
