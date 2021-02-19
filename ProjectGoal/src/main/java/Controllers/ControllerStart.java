@@ -1,7 +1,8 @@
 package Controllers;
 
 import Entity.User;
-import Main.JdbcSQLiteConnection;
+import Entity.UserHolder;
+import Main.GlobalRepo;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -85,8 +86,9 @@ public class ControllerStart {
 
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("StartForms/SignIn.fxml")));
             stages.setTitle("SignIn");
-            stages.setWidth(1000);
-            stages.setScene(new Scene(root, 1000, 700));
+            stages.setWidth(900);
+            stages.setHeight(770);
+            stages.setScene(new Scene(root, 900, 770));
             stages.show();
         }
 
@@ -94,12 +96,12 @@ public class ControllerStart {
 
     public void createUser(String username, String e_mail, String passw){
 
-            User user = User.getInstance();
+            User user = UserHolder.getInstance();
             user.setUsername(username);
             user.setE_mail(e_mail);
             user.setPassw(passw);
 
-            JdbcSQLiteConnection connect = new JdbcSQLiteConnection();
+            GlobalRepo connect = new GlobalRepo();
             connect.insertUser(user.getUsername(), user.getPassw(), user.getE_mail());
             connect.selectMail();
 
@@ -107,10 +109,10 @@ public class ControllerStart {
 
     public void signInBtnClicked(MouseEvent mouseEvent) throws IOException {
         signInBtn.setStyle("-fx-background-color: #34273B; -fx-border-width: 3px; -fx-border-color: #b6f2e1;");
-        JdbcSQLiteConnection connect = new JdbcSQLiteConnection();
+        GlobalRepo connect = new GlobalRepo();
         String mail = emailField.getText();
         String pass = passField.getText();
-        User user = User.getInstance();
+        User user = UserHolder.getInstance();
         user.setE_mail(mail);
         user.setPassw(pass);
         user.setUsername(connect.searchName(mail));
@@ -122,9 +124,11 @@ public class ControllerStart {
 
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("StartForms/MainForm.fxml")));
             stages.setTitle("MainFrame");
-            stages.setWidth(1000);
-            stages.setScene(new Scene(root, 1000, 700));
+            stages.setWidth(900);
+            stages.setHeight(770);
+            stages.setScene(new Scene(root, 900, 770));
             stages.show();
+
         }
         else{
             invalidLabel.setTextFill(Paint.valueOf("#888888"));
@@ -132,7 +136,7 @@ public class ControllerStart {
     }
 
     public Boolean searchMailBool(String e_mail) {
-        JdbcSQLiteConnection connect = new JdbcSQLiteConnection();
+        GlobalRepo connect = new GlobalRepo();
         List<String> mail;
         boolean b = false;
         mail = connect.selectMail();
@@ -143,11 +147,10 @@ public class ControllerStart {
                 }
             }
         return b;
-
     }
 
     public String searchMail(String email){
-        JdbcSQLiteConnection connect = new JdbcSQLiteConnection();
+        GlobalRepo connect = new GlobalRepo();
         List<String> mail;
         String str = "";
         mail = connect.selectMail();
@@ -160,7 +163,7 @@ public class ControllerStart {
     }
 
     public Boolean searchPassBool(String pass, String mail){
-        JdbcSQLiteConnection connect = new JdbcSQLiteConnection();
+        GlobalRepo connect = new GlobalRepo();
         String password;
         boolean t = false;
         password = connect.selectPass(mail);

@@ -1,7 +1,8 @@
 package Controllers;
 
 import Entity.User;
-import Main.JdbcSQLiteConnection;
+import Entity.UserHolder;
+import Main.GlobalRepo;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -60,8 +61,8 @@ public class ControllerUser {
         }
 
         else {
-            User user = User.getInstance();
-            JdbcSQLiteConnection connect = new JdbcSQLiteConnection();
+            User user = UserHolder.getInstance();
+            GlobalRepo connect = new GlobalRepo();
             connect.deleteUser(user.getE_mail());
             controllerStart.createUser(username, e_mail, passw);
             ControllerMain controllerMain = new ControllerMain();

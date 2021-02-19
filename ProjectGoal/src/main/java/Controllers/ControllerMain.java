@@ -1,13 +1,12 @@
 package Controllers;
 
+import Entity.Goal;
 import Entity.User;
-import javafx.fxml.FXML;
+import Entity.UserHolder;
+import Main.GlobalRepo;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -15,6 +14,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class ControllerMain {
@@ -33,6 +34,8 @@ public class ControllerMain {
     public ImageView closeBtn;
     public ImageView minBtn;
     public Rectangle closeBtnBorder;
+    public BorderPane goalBorderPane;
+    public Pane goalPane;
 
     public void userBtnClicked() {
 
@@ -46,7 +49,7 @@ public class ControllerMain {
     }
 
     public Parent setInfoToUserFields(){
-        User user = User.getInstance();
+        User user = UserHolder.getInstance();
         Parent root;
         try {
             root= FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("UserForms/UserForm1.fxml")));
@@ -71,10 +74,12 @@ public class ControllerMain {
 
         Parent root = null;
         try {
-            root= FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("GoalForms/GoalForm.fxml")));
+            root= FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("GoalForms/GoalForm1.fxml")));
         } catch (Exception ignored) {
         }
+
         mainBorderPane.setCenter(root);
+
     }
 
     public void calendarBtnClicked() {

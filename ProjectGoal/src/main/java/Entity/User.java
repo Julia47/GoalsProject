@@ -2,23 +2,10 @@ package Entity;
 
 public final class User {
 
-    private static User INSTANCE;
     private String username;
     private String passw;
     private String e_mail;
     private String id_user;
-
-
-    private User(){
-    }
-
-    public static User getInstance(){
-        if(INSTANCE == null) {
-            INSTANCE = new User();
-        }
-        return INSTANCE;
-    }
-
 
     public String getUsername() {
         return username;
