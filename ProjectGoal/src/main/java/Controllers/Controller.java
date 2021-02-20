@@ -3,6 +3,7 @@ package Controllers;
 import Entity.Goal;
 import Entity.Task;
 import Main.GlobalRepo;
+import Tools.ConvertDay;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -47,20 +48,20 @@ public class Controller implements Initializable  {
             Button deleteGoal = new Button();
 
             Pane pane = new Pane();
-            pane.setPrefWidth(400);
+            pane.setPrefWidth(360);
             pane.setPrefHeight(40);
             pane.setStyle("-fx-background-color: #0b253a;; -fx-border-width: 0.4px; -fx-border-color:  #b6f2e1");
             pane.getChildren().add(labelGoal);
 
             Pane datePane = new Pane();
-            datePane.setPrefWidth(100);
+            datePane.setPrefWidth(120);
             datePane.setPrefHeight(40);
             datePane.setStyle("-fx-background-color: #0b253a;; -fx-border-width: 0.4px; -fx-border-color:  #b6f2e1");
 
             Label labelDate = new Label();
             labelDate.setText("  " + goals.getDate_goal());
             labelDate.setTextFill(Color.web("d1d1d1"));
-            labelDate.setFont(new Font("System", 18));
+            labelDate.setFont(new Font("System", 16));
             labelDate.setPadding(new Insets(4,3,5,3));
 
             datePane.getChildren().add(labelDate);
@@ -105,6 +106,11 @@ public class Controller implements Initializable  {
             List<Task> tasks;
             tasks = connect.selectTasks(goals.getId());
             for (Task task : tasks){
+
+                ConvertDay convertDay = new ConvertDay();
+                String day_now = convertDay.getConvertWeekdayNow();
+                boolean find_day = task.getWeekday().contains(day_now);
+
                 Label labelTask = new Label();
                 labelTask.setText("     - "+task.getName_task());
                 labelTask.setTextFill(Color.web("#b6f2e1"));
@@ -112,24 +118,61 @@ public class Controller implements Initializable  {
                 labelTask.setPadding(new Insets(8,8,8,8));
 
                 Pane pane2 = new Pane();
-                pane2.setPrefWidth(400);
+                pane2.setPrefWidth(300);
                 pane2.setPrefHeight(40);
                 pane2.setStyle("-fx-background-color: #0b253a;; -fx-border-width: 0.4px; -fx-border-color:  #b6f2e1");
+                if (find_day){
+                    pane2.setStyle("-fx-background-color:" + goals.getCategory() +";; -fx-border-width: 0.4px; -fx-border-color:  #b6f2e1");
+                }
+                else {
+                    pane2.setStyle("-fx-background-color: #0b253a;; -fx-border-width: 0.4px; -fx-border-color:  #b6f2e1");
+                }
+
+                Label labelAmount = new Label();
+                labelAmount.setText(task.getAmount().toString());
+                labelAmount.setTextFill(Color.web("#b6f2e1"));
+                labelAmount.setFont(new Font("System", 20));
+                labelAmount.setPadding(new Insets(8,8,8,13));
 
                 Pane colorpane = new Pane();
                 colorpane.setPrefWidth(40);
                 colorpane.setPrefHeight(40);
                 colorpane.setStyle("-fx-background-color:" + goals.getCategory() + ";; -fx-border-width: 0.4px; -fx-border-color:  #b6f2e1");
+                colorpane.getChildren().add(labelAmount);
+
+                Label labelWeekday = new Label();
+                labelWeekday.setText(task.getWeekday());
+                labelWeekday.setTextFill(Color.web("#b6f2e1"));
+                labelWeekday.setFont(new Font("System", 10));
+                labelWeekday.setPadding(new Insets(8,8,8,8));
 
                 Pane weekdayPane = new Pane();
-                weekdayPane.setPrefWidth(50);
+                weekdayPane.setPrefWidth(120);
                 weekdayPane.setPrefHeight(40);
-                weekdayPane.setStyle("-fx-background-color: #0b253a;; -fx-border-width: 0.4px; -fx-border-color:  #b6f2e1");
+                if (find_day){
+                    weekdayPane.setStyle("-fx-background-color:" + goals.getCategory() +";; -fx-border-width: 0.4px; -fx-border-color:  #b6f2e1");
+                }
+                else {
+                    weekdayPane.setStyle("-fx-background-color: #0b253a;; -fx-border-width: 0.4px; -fx-border-color:  #b6f2e1");
+                }
+                weekdayPane.getChildren().add(labelWeekday);
+
+                Label labelTime = new Label();
+                labelTime.setText(task.getTime());
+                labelTime.setTextFill(Color.web("#b6f2e1"));
+                labelTime.setFont(new Font("System", 17));
+                labelTime.setPadding(new Insets(8,8,8,8));
 
                 Pane timePane = new Pane();
-                timePane.setPrefWidth(50);
+                timePane.setPrefWidth(60);
                 timePane.setPrefHeight(40);
-                timePane.setStyle("-fx-background-color: #0b253a;; -fx-border-width: 0.4px; -fx-border-color:  #b6f2e1");
+                if (find_day){
+                    timePane.setStyle("-fx-background-color:" + goals.getCategory() +";; -fx-border-width: 0.4px; -fx-border-color:  #b6f2e1");
+                }
+                else {
+                    timePane.setStyle("-fx-background-color: #0b253a;; -fx-border-width: 0.4px; -fx-border-color:  #b6f2e1");
+                }
+                timePane.getChildren().add(labelTime);
 
                 Button deleteTask = new Button();
                 deleteTask.setText("-");
@@ -151,11 +194,13 @@ public class Controller implements Initializable  {
 
                 pane2.getChildren().add(labelTask);
                 HBox hBox2 = new HBox();
-                hBox2.getChildren().addAll( colorpane, pane2, weekdayPane, timePane, deleteTask);
+                hBox2.getChildren().addAll( colorpane, pane2, timePane, weekdayPane, deleteTask);
                 vbox.getChildren().add(hBox2);
             }
         }
     }
+
+
 
     public void addGoalClicked(MouseEvent mouseEvent) {
         Parent root = null;

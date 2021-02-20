@@ -1,8 +1,12 @@
 package Tools;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.Locale;
 
 public class ConvertorDate {
 
@@ -12,7 +16,24 @@ public class ConvertorDate {
                 .toInstant());
     }
 
+//    SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
+//    String dateInString = "7-Jun-2013";
+//    Date date = formatter.parse(dateInString);
+
     public Date convertToDateViaSqlDate(LocalDate dateToConvert) {
         return java.sql.Date.valueOf(dateToConvert);
+    }
+
+    public String getMyDate(String myDate, String requiredFormat, String myFormat) {
+        DateFormat dateFormat = new SimpleDateFormat(requiredFormat);
+        Date date = null;
+        String returnValue = "";
+        try {
+            date = new SimpleDateFormat(myFormat, Locale.ENGLISH).parse(myDate);
+            returnValue = dateFormat.format(date);
+        } catch (ParseException e) {
+            returnValue = myDate;
+        }
+        return returnValue;
     }
 }

@@ -6,11 +6,11 @@ import java.util.Date;
 public class Goal {
     private String name_goal;
     private String category;
-    private Date date_goal;
+    private String date_goal;
     private String id;
     private String id_user;
 
-    public Goal(String name_goal, String category, Date date_goal, String id, String id_user) {
+    public Goal(String name_goal, String category, String date_goal, String id, String id_user) {
         this.name_goal = name_goal;
         this.category = category;
         this.date_goal = date_goal;
@@ -34,11 +34,11 @@ public class Goal {
         this.category = category;
     }
 
-    public Date getDate_goal() {
+    public String getDate_goal() {
         return date_goal;
     }
 
-    public void setDate_goal(Date date_goal) {
+    public void setDate_goal(String date_goal) {
         this.date_goal = date_goal;
     }
 

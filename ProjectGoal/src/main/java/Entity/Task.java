@@ -4,17 +4,15 @@ public class Task {
     private String id;
     private String id_goals;
     private String name_task;
-    private String time_start;
-    private String time_end;
+    private String time;
     private Integer amount;
     private String weekday;
 
-    public Task(String id, String id_goals, String name_task, String time_start, String time_end, Integer amount, String weekday) {
+    public Task(String id, String id_goals, String name_task, String time,  Integer amount, String weekday) {
         this.id = id;
         this.id_goals = id_goals;
         this.name_task = name_task;
-        this.time_start = time_start;
-        this.time_end = time_end;
+        this.time=time;
         this.amount = amount;
         this.weekday = weekday;
     }
@@ -43,20 +41,12 @@ public class Task {
         this.name_task = name_task;
     }
 
-    public String getTime_start() {
-        return time_start;
+    public String getTime() {
+        return time;
     }
 
-    public void setTime_start(String time_start) {
-        this.time_start = time_start;
-    }
-
-    public String getTime_end() {
-        return time_end;
-    }
-
-    public void setTime_end(String time_end) {
-        this.time_end = time_end;
+    public void setTime(String time_start) {
+        this.time = time;
     }
 
     public Integer getAmount() {

@@ -1,9 +1,7 @@
 package Controllers;
 
-import Entity.Goal;
 import Entity.User;
 import Entity.UserHolder;
-import Main.GlobalRepo;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
@@ -11,11 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class ControllerMain {
@@ -33,9 +27,6 @@ public class ControllerMain {
     public Pane calendarPane;
     public ImageView closeBtn;
     public ImageView minBtn;
-    public Rectangle closeBtnBorder;
-    public BorderPane goalBorderPane;
-    public Pane goalPane;
 
     public void userBtnClicked() {
 

@@ -23,21 +23,33 @@
                   <font>
                       <Font name="Montserrat Regular" size="31.0" />
                   </font>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
               </Label>
-              <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="76.0" prefHeight="43.0" prefWidth="411.0" text="Your email adress: " textFill="#b6f2e1" GridPane.rowIndex="1">
+              <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="76.0" prefHeight="43.0" prefWidth="317.0" text="Your email adress: " textFill="#b6f2e1" GridPane.rowIndex="1">
                  <font>
                      <Font name="Montserrat Regular" size="31.0" />
                  </font>
+               <GridPane.margin>
+                  <Insets left="100.0" />
+               </GridPane.margin>
               </Label>
-              <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="251.0" prefHeight="43.0" prefWidth="362.0" text="Your password: " textFill="#b6f2e1" GridPane.rowIndex="2">
+              <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="251.0" prefHeight="43.0" prefWidth="247.0" text="Your password: " textFill="#b6f2e1" GridPane.rowIndex="2">
                  <font>
                      <Font name="Montserrat Regular" size="31.0" />
                  </font>
+               <GridPane.margin>
+                  <Insets left="100.0" />
+               </GridPane.margin>
               </Label>
-              <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="426.0" prefHeight="43.0" prefWidth="336.0" text="Change data? " textFill="#b6f2e1" GridPane.rowIndex="3">
+              <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="426.0" prefHeight="43.0" prefWidth="312.0" text="Change data? " textFill="#b6f2e1" GridPane.rowIndex="3">
                  <font>
                      <Font name="Montserrat Regular" size="31.0" />
                  </font>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
               </Label>
               <Label fx:id="emailData" alignment="BOTTOM_LEFT" contentDisplay="CENTER" layoutX="10.0" layoutY="76.0" prefHeight="43.0" prefWidth="407.0" text="Info" textFill="#b6f2e1" GridPane.columnIndex="1" GridPane.rowIndex="1">
                  <font>

@@ -85,36 +85,36 @@
                   <Insets left="50.0" />
                </GridPane.margin>
             </Label>
-            <CheckBox layoutX="104.0" layoutY="300.0" mnemonicParsing="false" style="-fx-text-fill: #b6f2e1;" text="Mon" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <CheckBox fx:id="MonCheck" layoutX="104.0" layoutY="300.0" mnemonicParsing="false" style="-fx-text-fill: #b6f2e1;" text="Mon" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="222.0" />
                </GridPane.margin></CheckBox>
-            <CheckBox layoutX="154.0" layoutY="300.0" mnemonicParsing="false" style="-fx-text-fill: #b6f2e1;" text="Tue" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <CheckBox fx:id="TueCheck" layoutX="154.0" layoutY="300.0" mnemonicParsing="false" style="-fx-text-fill: #b6f2e1;" text="Tue" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="283.0" />
                </GridPane.margin>
             </CheckBox>
-            <CheckBox layoutX="224.0" layoutY="300.0" mnemonicParsing="false" style="-fx-text-fill: #b6f2e1;" text="Sat" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <CheckBox fx:id="SatCheck" layoutX="224.0" layoutY="300.0" mnemonicParsing="false" style="-fx-text-fill: #b6f2e1;" text="Sat" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="500.0" />
                </GridPane.margin>
             </CheckBox>
-            <CheckBox layoutX="264.0" layoutY="300.0" mnemonicParsing="false" style="-fx-text-fill: #b6f2e1;" text="Fri" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <CheckBox fx:id="FriCheck" layoutX="264.0" layoutY="300.0" mnemonicParsing="false" style="-fx-text-fill: #b6f2e1;" text="Fri" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="455.0" />
                </GridPane.margin>
             </CheckBox>
-            <CheckBox layoutX="264.0" layoutY="300.0" mnemonicParsing="false" style="-fx-text-fill: #b6f2e1;" text="Thu" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <CheckBox fx:id="ThuCheck" layoutX="264.0" layoutY="300.0" mnemonicParsing="false" style="-fx-text-fill: #b6f2e1;" text="Thu" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="400.0" />
                </GridPane.margin>
             </CheckBox>
-            <CheckBox layoutX="264.0" layoutY="300.0" mnemonicParsing="false" style="-fx-text-fill: #b6f2e1;" text="Wed" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <CheckBox fx:id="WedCheck" layoutX="264.0" layoutY="300.0" mnemonicParsing="false" style="-fx-text-fill: #b6f2e1;" text="Wed" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="340.0" />
                </GridPane.margin>
             </CheckBox>
-            <CheckBox layoutX="254.0" layoutY="300.0" mnemonicParsing="false" style="-fx-text-fill: #b6f2e1;" text="Sun" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <CheckBox fx:id="SunCheck" layoutX="254.0" layoutY="300.0" mnemonicParsing="false" style="-fx-text-fill: #b6f2e1;" text="Sun" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="170.0" />
                </GridPane.margin>

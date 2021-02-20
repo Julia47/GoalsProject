@@ -15,9 +15,7 @@ public class GlobalRepo {
     private Connection connect() {
 
         String dbURL = "jdbc:sqlite:/home/julie47/JUST_DO/repo/GoalsProject/sqliteDB/goal.db";
-
         Connection conn = null;
-
         try {
             Class.forName("org.sqlite.JDBC");
             conn = DriverManager.getConnection(dbURL);
@@ -44,8 +42,7 @@ public class GlobalRepo {
         }
     }
 
-
-    public void insertGoal(String name_goal, String category, Date date) {
+    public void insertGoal(String name_goal, String category, String date) {
         String sql = "INSERT INTO goals(name_goal, category, date, id_user) VALUES(?,?,?,?)";
         User user = UserHolder.getInstance();
 
@@ -62,17 +59,24 @@ public class GlobalRepo {
         }
     }
 
-    public void insertTasks(String name_tasks, Integer amount){
-        String sql = "INSERT INTO tasks (id_goals, name_task, time_start, time_end, amount, weekday) VALUES(?,?,?,?,?,?)";
+    public void insertTasks(String name_tasks, Integer amount, Integer hours, Integer minutes, String weekday){
+        String sql = "INSERT INTO tasks (id_goals, name_task, time, amount, weekday) VALUES(?,?,?,?,?)";
+        String hour = hours.toString();
+        String min = minutes.toString();
+        if (hours<10){
+            hour = "0" + hour;
+        }
+        if (minutes<10){
+            min = "0" + min;
+        }
         try{
             Connection conn = this.connect();
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, Controller.id_goals);
             pstmt.setString(2, name_tasks);
-            pstmt.setString(3, null);
-            pstmt.setString(4, null);
-            pstmt.setInt(5, amount);
-            pstmt.setString(6, null);
+            pstmt.setString(3, hour+":"+min);
+            pstmt.setInt(4, amount);
+            pstmt.setString(5, weekday);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -127,7 +131,7 @@ public class GlobalRepo {
             Statement stmt  = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
-                goals.add(new Goal(rs.getString("name_goal"), rs.getString("category"), null, rs.getString("id"), rs.getString("id_user")));
+                goals.add(new Goal(rs.getString("name_goal"), rs.getString("category"), rs.getString("date"), rs.getString("id"), rs.getString("id_user")));
                 //goals.add(rs.getString("goals"));
             }
         } catch (SQLException e) {
@@ -145,7 +149,7 @@ public class GlobalRepo {
             Statement stmt  = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
-                tasks.add(new Task(rs.getString("id"),  rs.getString("id_goals"), rs.getString("name_task"), null, null, rs.getInt("amount"), null));
+                tasks.add(new Task(rs.getString("id"),  rs.getString("id_goals"), rs.getString("name_task"), rs.getString("time"), rs.getInt("amount"), rs.getString("weekday")));
                 //goals.add(rs.getString("goals"));
             }
         } catch (SQLException e) {
@@ -200,9 +204,4 @@ public class GlobalRepo {
             return false;
         }
     }
-
-
-
-
-
 }

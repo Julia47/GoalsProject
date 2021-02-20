@@ -10,6 +10,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
+
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
@@ -32,6 +35,13 @@ public class ControllerGoal {
     public Spinner<Integer> spinnerMin;
     public Spinner<Integer> spinnerHour;
     public Spinner<Integer> amountReminding;
+    public CheckBox MonCheck;
+    public CheckBox TueCheck;
+    public CheckBox SatCheck;
+    public CheckBox FriCheck;
+    public CheckBox ThuCheck;
+    public CheckBox WedCheck;
+    public CheckBox SunCheck;
 
     // checkBox.setStyle("selected-box-color: lime; box-color: red; mark-color: blue;");
     
@@ -59,7 +69,13 @@ public class ControllerGoal {
 
         GlobalRepo connect = new GlobalRepo();
         if (color != null && !name_goal.isEmpty() && dateGoal.getValue() != null){
-            Date date = convertorDate.convertToDateViaInstant(dateGoal.getValue());
+            //Date date = convertorDate.convertToDateViaInstant(dateGoal.getValue());
+           // String date_new = convertorDate.getMyDate(date.toString(), "d.MMM.yyyy", "EEE MMM dd HH:mm:ss zzz yyyy");
+            String date = dateGoal.getValue().toString();
+            //System.out.println(date_new);
+            //System.out.println(date);
+            //System.out.println(date.toString());
+
             connect.insertGoal(name_goal, color, date);
             Parent root = null;
             try {
@@ -73,14 +89,45 @@ public class ControllerGoal {
         }
     }
 
+    public String generateWeekday(){
+        String weekday = "";
+        System.out.println(MonCheck.isSelected());
+        if(SunCheck.isSelected()){
+            weekday = weekday + SunCheck.getText()+" ";
+        }
+        if(MonCheck.isSelected()){
+            weekday = weekday + MonCheck.getText()+" ";
+        }
+        if(TueCheck.isSelected()){
+            weekday = weekday + TueCheck.getText()+" ";
+        }
+        if(WedCheck.isSelected()){
+            weekday = weekday + WedCheck.getText()+" ";
+        }
+        if(ThuCheck.isSelected()){
+            weekday = weekday + ThuCheck.getText()+" ";
+        }
+        if(FriCheck.isSelected()){
+            weekday = weekday + FriCheck.getText()+" ";
+        }
+        if(SatCheck.isSelected()){
+            weekday = weekday + SatCheck.getText()+" ";
+        }
+        return weekday;
+    }
+
     public void addTaskClicked(MouseEvent mouseEvent) {
         String name_task = taskTextField.getText();
         Integer amount = amountReminding.getValue();
-        System.out.println(amount);
+        Integer hours = spinnerHour.getValue();
+        Integer minutes = spinnerMin.getValue();
+        String weekday = generateWeekday();
+
+        //System.out.println(DayOfWeek.from( LocalDate.now()));
 
         GlobalRepo connect = new GlobalRepo();
         if (!name_task.isEmpty() && amount!=0){
-            connect.insertTasks(name_task, amount);
+            connect.insertTasks(name_task, amount, hours, minutes, weekday);
         }
         else {
             labelEmpty.setTextFill(Paint.valueOf("#888888"));
