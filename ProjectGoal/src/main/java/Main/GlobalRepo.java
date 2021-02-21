@@ -60,7 +60,7 @@ public class GlobalRepo {
     }
 
     public void insertTasks(String name_tasks, Integer amount, Integer hours, Integer minutes, String weekday){
-        String sql = "INSERT INTO tasks (id_goals, name_task, time, amount, weekday) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO tasks (id_goals, name_task, time, amount, weekday, done) VALUES(?,?,?,?,?,?)";
         String hour = hours.toString();
         String min = minutes.toString();
         if (hours<10){
@@ -77,7 +77,20 @@ public class GlobalRepo {
             pstmt.setString(3, hour+":"+min);
             pstmt.setInt(4, amount);
             pstmt.setString(5, weekday);
+            pstmt.setString(6, "no");
             pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void updateTask(Integer amount, String id, String done){
+        String sql = "UPDATE tasks SET amount = \""+amount+ "\" , done = \""+ done + "\" WHERE id="+id+";";
+        try{
+            Connection conn = this.connect();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.executeUpdate();
+            // conn.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -132,7 +145,6 @@ public class GlobalRepo {
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 goals.add(new Goal(rs.getString("name_goal"), rs.getString("category"), rs.getString("date"), rs.getString("id"), rs.getString("id_user")));
-                //goals.add(rs.getString("goals"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -149,7 +161,7 @@ public class GlobalRepo {
             Statement stmt  = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
-                tasks.add(new Task(rs.getString("id"),  rs.getString("id_goals"), rs.getString("name_task"), rs.getString("time"), rs.getInt("amount"), rs.getString("weekday")));
+                tasks.add(new Task(rs.getString("id"),  rs.getString("id_goals"), rs.getString("name_task"), rs.getString("time"), rs.getInt("amount"), rs.getString("weekday"), rs.getString("done")));
                 //goals.add(rs.getString("goals"));
             }
         } catch (SQLException e) {

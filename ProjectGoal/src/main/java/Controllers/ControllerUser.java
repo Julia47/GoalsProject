@@ -97,4 +97,18 @@ public class ControllerUser {
     public void changeDataMoved2(MouseEvent mouseEvent) {
         changeDataBtn2.setStyle("-fx-background-color: #361040; -fx-border-width: 3px; -fx-border-color:  #b6f2e1");
     }
+
+    public void passDataExited(MouseEvent mouseEvent) {
+        User user = UserHolder.getInstance();
+        String str = "";
+        for (int i=0; i<user.getPassw().length(); i++){
+            str = str + "*";
+        }
+        passData.setText(str);
+    }
+
+    public void passDataMoved(MouseEvent mouseEvent) {
+        User user = UserHolder.getInstance();
+        passData.setText(user.getPassw());
+    }
 }

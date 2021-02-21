@@ -16,9 +16,10 @@
                 </columnConstraints>
                 <rowConstraints>
                <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="121.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="121.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="285.0" minHeight="0.0" prefHeight="164.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="602.0" minHeight="10.0" prefHeight="99.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="285.0" minHeight="0.0" prefHeight="156.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="602.0" minHeight="10.0" prefHeight="82.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="602.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
                <RowConstraints maxHeight="602.0" minHeight="10.0" prefHeight="160.0" vgrow="SOMETIMES" />
                <RowConstraints maxHeight="602.0" minHeight="10.0" prefHeight="159.0" vgrow="SOMETIMES" />
                 </rowConstraints>
@@ -42,7 +43,7 @@
                   <Insets left="50.0" />
                </GridPane.margin>
             </DatePicker>
-            <Button fx:id="canselDataBtn" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onMouseClicked="#canselDataClicked" onMouseExited="#canselDataExited" onMouseMoved="#canselDataMoved" prefHeight="35.0" prefWidth="118.0" style="-fx-background-color:  #0b253a; -fx-border-width: 1px; -fx-border-color: #b6f2e1;" text="CANSEL" textFill="#b6f2e1" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Button fx:id="canselDataBtn" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onMouseClicked="#canselDataClicked" onMouseExited="#canselDataExited" onMouseMoved="#canselDataMoved" prefHeight="35.0" prefWidth="118.0" style="-fx-background-color:  #0b253a; -fx-border-width: 1px; -fx-border-color: #b6f2e1;" text="CANSEL" textFill="#b6f2e1" GridPane.columnIndex="1" GridPane.rowIndex="5">
                 <font>
                     <Font size="18.0" />
                 </font>
@@ -50,7 +51,7 @@
                     <Insets left="170.0" />
                 </GridPane.margin>
             </Button>
-                <Button fx:id="addDataBtn" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onMouseClicked="#addDataClicked" onMouseExited="#addDataExited" onMouseMoved="#addDataMoved" prefHeight="35.0" prefWidth="219.0" style="-fx-background-color:  #0b253a; -fx-border-width: 1px; -fx-border-color: #b6f2e1;" text="ADD GOAL" textFill="#b6f2e1" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                <Button fx:id="addDataBtn" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onMouseClicked="#addDataClicked" onMouseExited="#addDataExited" onMouseMoved="#addDataMoved" prefHeight="35.0" prefWidth="219.0" style="-fx-background-color:  #0b253a; -fx-border-width: 1px; -fx-border-color: #b6f2e1;" text="ADD GOAL" textFill="#b6f2e1" GridPane.columnIndex="1" GridPane.rowIndex="5">
                     <font>
                         <Font size="18.0" />
                     </font>
@@ -58,24 +59,7 @@
                         <Insets left="325.0" />
                     </GridPane.margin>
                 </Button>
-<!--            <ChoiceBox fx:id="chooseCategory" prefHeight="28.0" prefWidth="217.0" style="-fx-border-color: #b6f2e1; -fx-background-color: white;" value="Choose category" GridPane.columnIndex="1" GridPane.rowIndex="3">-->
-<!--                <items>-->
-<!--                    <FXCollections fx:factory="observableArrayList">-->
-<!--                        <String fx:value="Sport" />-->
-<!--                        <String fx:value="Health" />-->
-<!--                        <String fx:value="Family" />-->
-<!--                        <String fx:value="Career" />-->
-<!--                        <String fx:value="Money" />-->
-<!--                        <String fx:value="Travels" />-->
-<!--                        <String fx:value="Personal Growth" />-->
-<!--                        <String fx:value="Other" />-->
-<!--                    </FXCollections>-->
-<!--                </items>-->
-<!--               <GridPane.margin>-->
-<!--                  <Insets left="330.0" />-->
-<!--               </GridPane.margin>-->
-<!--            </ChoiceBox>-->
-                <Label fx:id="labelEmpty" prefHeight="23.0" prefWidth="258.0" text=" Invalid!! Empty fields" textFill="#0b253a" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                <Label fx:id="labelEmpty" prefHeight="23.0" prefWidth="258.0" text=" Invalid!! Empty fields" textFill="#0b253a" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets bottom="80.0" left="50.0" />
                </GridPane.margin></Label>
@@ -84,6 +68,11 @@
                   <Insets left="325.0" />
                </GridPane.margin>
             </ColorPicker>
+            <Label fx:id="invalidDate" layoutX="154.0" layoutY="450.0" prefHeight="23.0" prefWidth="258.0" text=" Invalid date!!" textFill="#0b253a" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+            </Label>
             </GridPane>
         </Pane>
     </center>

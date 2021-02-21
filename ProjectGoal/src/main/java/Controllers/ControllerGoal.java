@@ -2,7 +2,6 @@ package Controllers;
 
 import Main.GlobalRepo;
 import Tools.ConvertorColor;
-import Tools.ConvertorDate;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
@@ -10,23 +9,17 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
-
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.Objects;
 
 public class ControllerGoal {
 
     public Pane addGoalPane;
-    public BorderPane goalBorderPane;
     public Button canselDataBtn;
     public Button addTaskBtn;
     public BorderPane goalBorderPane2;
     public BorderPane goalBorderPane3;
     public TextField goalTextField;
     public DatePicker dateGoal;
-    public ChoiceBox chooseCategory;
     public Label labelEmpty;
     public TextField taskTextField;
     public Button canselTaskBtn;
@@ -42,9 +35,8 @@ public class ControllerGoal {
     public CheckBox ThuCheck;
     public CheckBox WedCheck;
     public CheckBox SunCheck;
+    public Label invalidDate;
 
-    // checkBox.setStyle("selected-box-color: lime; box-color: red; mark-color: blue;");
-    
     public void canselDataClicked() {
         Parent root = null;
         try {
@@ -55,26 +47,21 @@ public class ControllerGoal {
     }
     
     public void addDataClicked() {
-        ConvertorDate convertorDate = new ConvertorDate();
+
         ConvertorColor convertorColor = new ConvertorColor();
-        //Date date = convertorDate.convertToDateViaInstant(dateGoal.getValue());
-        //Date date = convertorDate.convertToDateViaSqlDate(dateGoal.getValue());
 
         String name_goal = goalTextField.getText();
-       // String category = (String) chooseCategory.getSelectionModel().getSelectedItem();
 
         String color = convertorColor.toHexString(chooseColor.getValue());
         System.out.println(color);
         System.out.println(dateGoal.getValue());
+        String date = dateGoal.getValue().toString();
+        int date_n = Integer.parseInt(parseDate(date)[0]);
+        int date_m = Integer.parseInt(parseDate(date)[1]);
+        int date_d = Integer.parseInt(parseDate(date)[2]);
 
         GlobalRepo connect = new GlobalRepo();
-        if (color != null && !name_goal.isEmpty() && dateGoal.getValue() != null){
-            //Date date = convertorDate.convertToDateViaInstant(dateGoal.getValue());
-           // String date_new = convertorDate.getMyDate(date.toString(), "d.MMM.yyyy", "EEE MMM dd HH:mm:ss zzz yyyy");
-            String date = dateGoal.getValue().toString();
-            //System.out.println(date_new);
-            //System.out.println(date);
-            //System.out.println(date.toString());
+        if (color != null && !name_goal.isEmpty() && dateGoal.getValue() != null && date_n>=2021 ){
 
             connect.insertGoal(name_goal, color, date);
             Parent root = null;
@@ -85,8 +72,17 @@ public class ControllerGoal {
             goalBorderPane2.setCenter(root);
         }
         else{
+            if (date_n<2021){
+                invalidDate.setTextFill(Paint.valueOf("#888888"));
+            }
             labelEmpty.setTextFill(Paint.valueOf("#888888"));
         }
+    }
+
+    public String[] parseDate(String date){
+        String[] str;
+        str = date.split("-");
+        return str;
     }
 
     public String generateWeekday(){
@@ -123,21 +119,19 @@ public class ControllerGoal {
         Integer minutes = spinnerMin.getValue();
         String weekday = generateWeekday();
 
-        //System.out.println(DayOfWeek.from( LocalDate.now()));
-
         GlobalRepo connect = new GlobalRepo();
-        if (!name_task.isEmpty() && amount!=0){
+        if (!name_task.isEmpty() && amount!=0 && !weekday.isEmpty() ){
             connect.insertTasks(name_task, amount, hours, minutes, weekday);
+            Parent root = null;
+            try {
+                root= FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("GoalForms/GoalForm1.fxml")));
+            } catch (Exception ignored) {
+            }
+            goalBorderPane3.setCenter(root);
         }
         else {
             labelEmpty.setTextFill(Paint.valueOf("#888888"));
         }
-        Parent root = null;
-        try {
-            root= FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("GoalForms/GoalForm1.fxml")));
-        } catch (Exception ignored) {
-        }
-        goalBorderPane3.setCenter(root);
     }
 
     public void canselTaskClicked(MouseEvent mouseEvent) {

@@ -127,7 +127,6 @@ public class ControllerStart {
         }
     }
 
-
     public void createExited(MouseEvent mouseEvent) {
         createBtn.setStyle("-fx-background-color: #34273B; -fx-border-width: 1px; -fx-border-color: #b6f2e1;");
     }

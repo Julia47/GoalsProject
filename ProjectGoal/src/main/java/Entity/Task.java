@@ -7,14 +7,16 @@ public class Task {
     private String time;
     private Integer amount;
     private String weekday;
+    private String done;
 
-    public Task(String id, String id_goals, String name_task, String time,  Integer amount, String weekday) {
+    public Task(String id, String id_goals, String name_task, String time,  Integer amount, String weekday, String done) {
         this.id = id;
         this.id_goals = id_goals;
         this.name_task = name_task;
         this.time=time;
         this.amount = amount;
         this.weekday = weekday;
+        this.done = done;
     }
 
     public String getId() {
@@ -63,5 +65,13 @@ public class Task {
 
     public void setWeekday(String weekday) {
         this.weekday = weekday;
+    }
+
+    public String getDone() {
+        return done;
+    }
+
+    public void setDone(String done) {
+        this.done = done;
     }
 }

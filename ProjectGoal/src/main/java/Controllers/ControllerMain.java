@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.util.Objects;
 
@@ -27,6 +28,7 @@ public class ControllerMain {
     public Pane calendarPane;
     public ImageView closeBtn;
     public ImageView minBtn;
+    public VBox vboxTaskNow;
 
     public void userBtnClicked() {
 
@@ -48,8 +50,12 @@ public class ControllerMain {
             if (nameLabel!=null) nameLabel.setText(user.getUsername());
             Label emailLabel = (Label) root.lookup("#emailData");
             if (emailLabel!=null) emailLabel.setText(user.getE_mail());
+            String str = "";
+            for (int i=0; i<user.getPassw().length(); i++){
+                str = str + "*";
+            }
             Label passLabel = (Label) root.lookup("#passData");
-            if (passLabel!=null) passLabel.setText(user.getPassw());
+            if (passLabel!=null) passLabel.setText(str);
             return root;
         } catch (Exception ignored) {
         }
@@ -70,7 +76,6 @@ public class ControllerMain {
         }
 
         mainBorderPane.setCenter(root);
-
     }
 
     public void calendarBtnClicked() {

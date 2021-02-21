@@ -16,10 +16,6 @@ public class ConvertorDate {
                 .toInstant());
     }
 
-//    SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
-//    String dateInString = "7-Jun-2013";
-//    Date date = formatter.parse(dateInString);
-
     public Date convertToDateViaSqlDate(LocalDate dateToConvert) {
         return java.sql.Date.valueOf(dateToConvert);
     }
@@ -36,4 +32,6 @@ public class ConvertorDate {
         }
         return returnValue;
     }
+
+
 }
