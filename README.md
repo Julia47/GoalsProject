@@ -15,4 +15,4 @@ To build TOGETHER BETTER (GoalsProject) you will need
 https://github.com/Julia47/GoalsProject/blob/main/demo.mp4
 ## Screenshots
 ![alt text](https://github.com/Julia47/GoalsProject/blob/main/ProjectGoal/resources/agenda.png)
-![alt text](https://github.com/Julia47/GoalsProject/blob/main/ProjectGoal/resources/app_goal.png)
+![alt text](https://github.com/Julia47/GoalsProject/blob/main/ProjectGoal/resources/add_goal.png)
