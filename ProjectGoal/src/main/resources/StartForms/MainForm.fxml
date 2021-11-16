@@ -6,14 +6,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="740.0" minWidth="900.0" prefHeight="740.0" prefWidth="900.0" style="-fx-border-color: #457096; -fx-border-width: 0.8;" BorderPane.alignment="BOTTOM_RIGHT" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ControllerMain">
+<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="740.0" minWidth="900.0" prefHeight="740.0" prefWidth="900.0" style="-fx-border-color: #457096; -fx-border-width: 0.8;" BorderPane.alignment="BOTTOM_RIGHT" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ControllerMain">
    <top>
       <BorderPane fx:id="borderPane" maxHeight="40.0" minHeight="40.0" minWidth="900.0" prefHeight="40.0" style="-fx-border-color: #b6f2e1; -fx-background-color: #050828; -fx-border-width: 0.4;" BorderPane.alignment="BOTTOM_LEFT">
          <center>
              <Pane fx:id="up3Pane" maxHeight="30.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="500.0" prefHeight="30.0" style="-fx-background-color: #050828; " BorderPane.alignment="CENTER" />
          </center>
          <right>
-             <Pane fx:id="up2Pane" maxHeight="30.0" maxWidth="150.0" minHeight="30.0" minWidth="150.0" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #050828;" BorderPane.alignment="CENTER">
+             <Pane fx:id="up2Pane" maxHeight="30.0" maxWidth="175.0" minHeight="30.0" minWidth="150.0" prefHeight="30.0" prefWidth="175.0" style="-fx-background-color: #050828;" BorderPane.alignment="CENTER">
                  <ImageView fx:id="closeBtn" fitHeight="23.0" fitWidth="23.0" layoutX="113.0" layoutY="5.0" onMouseClicked="#closeBtnClicked" pickOnBounds="true" preserveRatio="true">
                      <Image url="@/icons/x.png" />
                  </ImageView>

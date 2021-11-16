@@ -14,7 +14,7 @@ public class GlobalRepo {
 
     private Connection connect() {
 
-        String dbURL = "jdbc:sqlite:/home/julie47/JUST_DO/repo/GoalsProject/sqliteDB/goal.db";
+        String dbURL =  "jdbc:sqlite:" + System.getProperty("user.dir") + "/sqliteDB/goal.db";
         Connection conn = null;
         try {
             Class.forName("org.sqlite.JDBC");
