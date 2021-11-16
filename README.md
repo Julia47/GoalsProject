@@ -11,7 +11,8 @@ To build TOGETHER BETTER (GoalsProject) you will need
 + + all tasks per day will be on the top of the list and it wil you remind (just do it)
 + + add/delete goals and tasks
 + + change your personal data
-## Demo
+## Demo video
 https://github.com/Julia47/GoalsProject/blob/main/demo.mp4
+## Screenshots
 ![alt text](https://github.com/Julia47/GoalsProject/blob/main/ProjectGoal/resources/agenda.png)
 ![alt text](https://github.com/Julia47/GoalsProject/blob/main/ProjectGoal/resources/app_goal.png)
